@@ -1,0 +1,15 @@
+{
+  "name": "taptaptap",
+  "version": "0.1.0",
+  "description": "turn non fluent apis into fluent apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Michael Zanggl",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
