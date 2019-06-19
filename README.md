@@ -51,7 +51,7 @@ function createUser(name) {
 }
 ```
 
-or with arrow functions
+or using an arrow function
 
 ```javascript
 const { tap } = require('taptaptap')
@@ -59,7 +59,7 @@ const { tap } = require('taptaptap')
 const createUser = name => tap(new User).setName(name).save()
 ```
 
-`tap` uses ES6 proxies to make sure each function returns the original value (in our case, the user).
+`tap` uses ES6 proxies to make sure each function returns the original value (in our case, the user)
 
 ## Getting values
 
@@ -75,4 +75,26 @@ function createUserAndGetId(name) {
         .snapOut
         .getId()
 }
+```
+
+---
+
+Alternatively, you can also pass a function in the second argument.
+
+Turning
+
+```javascript
+const user = User.query().latest().first()
+
+expect(user.name).toBe('test name')
+expect(user.bio).toBe('test bio')
+```
+
+to
+
+```javascript
+tap(User.query().latest().first(), user => {
+    expect(user.name).toBe('test name')
+    expect(user.bio).toBe('test bio')
+})
 ```

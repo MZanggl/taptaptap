@@ -1,6 +1,6 @@
 const { tap } = require('../index')
 
-describe('tap', () => {
+describe('proxy', () => {
     it('can chain methods of a non fluent api', () => {
         class User {
             setName() {return true}
@@ -26,5 +26,20 @@ describe('tap', () => {
             .getName()
 
         expect(result).toBe('tester name')
+    })
+
+})
+
+describe('callback', () => {
+    it('passes value to callback', () => {
+        tap('test', value => {
+            expect(value).toBe('test')
+        })
+    })
+
+    it('returns the passed value', () => {
+        const result = tap('test', () => {})
+
+        expect(result).toBe('test')
     })
 })
