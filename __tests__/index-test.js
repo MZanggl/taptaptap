@@ -28,6 +28,13 @@ describe('proxy', () => {
         expect(result).toBe('tester name')
     })
 
+    it('works on arrays', () => {
+        const numbers = tap([])
+            .push(1)
+            .push(2)
+
+        expect(numbers).toEqual([1, 2])
+    })
 })
 
 describe('callback', () => {

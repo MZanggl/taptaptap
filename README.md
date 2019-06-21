@@ -2,7 +2,29 @@
 
 > `npm install taptaptap`
 
-Imagine a class like this
+## Examples 
+Take `Array.prototype.push` for example. It returns the new length of the array, making chaining impossible.
+
+```javascript
+const numbers = []
+numbers.push(1)
+numbers.push(2)
+```
+
+Wrapping the array inside "tap" allows us to chain everything together nicely.
+
+```javascript
+const { tap } = require('taptaptap')
+
+const numbers = tap([])
+    .push(1)
+    .push(2)
+```
+`tap` uses ES6 proxies to make sure each function gets executed, but returns the initially passed value (in this case, the numbers array).
+
+---
+
+One more example using classes
 
 ```javascript
 class User {
@@ -59,11 +81,9 @@ const { tap } = require('taptaptap')
 const createUser = name => tap(new User).setName(name).save()
 ```
 
-`tap` uses ES6 proxies to make sure each function returns the original value (in our case, the user)
-
 ## Getting values
 
-To get values while still keeping the chain going, literally snap out of it.
+Since every function just executes the initial value again, you either have to break out of the chain, or literally snap out of it.
 
 ```javascript
 const { tap } = require('taptaptap')
@@ -79,7 +99,7 @@ function createUserAndGetId(name) {
 
 ---
 
-Alternatively, you can also pass a function in the second argument.
+Alternatively, you can also pass a function in the second argument to group common logic.
 
 Turning
 
