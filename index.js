@@ -13,6 +13,10 @@ function createProxy(value) {
             if (prop === 'snapOut') {
                 return target
             }
+
+            if (typeof target[prop] !== 'function') {
+                return target[prop]
+            }
   
             return (...args) => {
                 target[prop](...args)
