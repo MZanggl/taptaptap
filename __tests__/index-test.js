@@ -12,7 +12,7 @@ describe('proxy', () => {
         expect(result).toBeInstanceOf(User)
     })
 
-    it('can get back value after accessing snapOut', () => {
+    it('can get back value after accessing tapOut', () => {
         class User {
             setName(name) {this.name = name}
             getName() {return this.name}
@@ -22,7 +22,7 @@ describe('proxy', () => {
         const result = tap(new User)
             .setName('tester name')
             .save()
-            .snapOut
+            .tapOut
             .getName()
 
         expect(result).toBe('tester name')

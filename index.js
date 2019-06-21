@@ -10,7 +10,7 @@ function tap(value, callback) {
 function createProxy(value) {
     const handler = {
         get(target, prop, receiver) {
-            if (prop === 'snapOut') {
+            if (prop === 'tapOut') {
                 return target
             }
 

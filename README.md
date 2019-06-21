@@ -83,7 +83,7 @@ const createUser = name => tap(new User).setName(name).save()
 
 ## Getting values
 
-Since every function just executes the initial value again, you either have to break out of the chain, or literally snap out of it.
+Since every function just executes the initial value again, you either have to break out of the chain, or tap out of it.
 
 ```javascript
 const { tap } = require('taptaptap')
@@ -92,7 +92,7 @@ function createUserAndGetId(name) {
     return tap(new User)
         .setName(name)
         .save()
-        .snapOut
+        .tapOut
         .getId()
 }
 ```
