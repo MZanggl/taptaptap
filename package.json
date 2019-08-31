@@ -1,6 +1,6 @@
 {
   "name": "taptaptap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "turns non fluent apis into fluent ones",
   "main": "index.js",
   "scripts": {
